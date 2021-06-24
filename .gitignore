@@ -49,3 +49,4 @@ figures/*.png
 # Pytest
 .pytest_cache/
 
+.idea/
