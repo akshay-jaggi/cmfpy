@@ -19,13 +19,14 @@ class Synthetic(object):
         self.n_components = n_components
         self.n_features = n_features
         self.n_lags = n_lags
+        self.n_timebins = n_timebins
         self.H_sparsity = H_sparsity
 
         self.H = self.create_H()
         self.W = self.create_W()
 
         # Determine noise
-        self.noise = noise_scale * self.rs.rand(n_features, n_timebins)
+        self.noise = noise_scale * self.rs.rand(self.n_features, self.n_timebins)
 
         # Add noise to model prediction
         self.data = cmf_predict(self.W, self.H) + self.noise
